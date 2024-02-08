@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BB.Scripts.UI;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,7 +7,6 @@ namespace com.ARTillery.Core
 {
     public class TimeController : MonoBehaviour
     {
-        [SerializeField]
         private float _timeMultiplier = 1f;
         private float _modifiedTime;
 
@@ -24,7 +24,28 @@ namespace com.ARTillery.Core
             Instance = this;
         }
         // Update is called once per frame
+
+        private void OnEnable()
+        {
+            UIControl.pauseClicked += Pause;
+            UIControl.resumeClicked += Resume;
+            UIControl.doubleClicked += DoubleTime;
+            UIControl.quadrupleClicked += QuadrupleTime;
+        }
+
+        private void OnDisable()
+        {
+            UIControl.pauseClicked -= Pause;
+            UIControl.resumeClicked -= Resume;
+            UIControl.doubleClicked -= DoubleTime;
+            UIControl.quadrupleClicked -= QuadrupleTime;
+        }
         void Update()
+        {
+            UpdateTimeUpdatables();
+        }
+
+        private void UpdateTimeUpdatables()
         {
             _modifiedTime = Time.deltaTime * _timeMultiplier;
             foreach (ITimeUpdatable timeUpdatable in timeUpdatables)
@@ -38,11 +59,29 @@ namespace com.ARTillery.Core
             timeUpdatables.Add(updatable);
         }
 
-        public void SetTimeMultiplier(int multiplier)
+        private void SetTimeMultiplier(float timeMultiplier)
         {
-            _timeMultiplier = multiplier;
+            _timeMultiplier = timeMultiplier;
         }
 
-        
+        private void Pause()
+        {
+            SetTimeMultiplier(0);
+        }
+
+        private void Resume()
+        {
+            SetTimeMultiplier(1f);
+        }
+
+        private void DoubleTime()
+        {
+            SetTimeMultiplier(2f);
+        }
+
+        private void QuadrupleTime()
+        {
+            SetTimeMultiplier(5f);
+        }
     }
 }

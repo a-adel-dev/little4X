@@ -1,0 +1,30 @@
+.container {
+	flex-direction: column-reverse;
+	height: 100%;
+}
+
+.time-controls {
+	padding: 5px;
+	flex-direction: row;
+	border-width: 4px;
+	border-color: brown;
+	border-radius: 15px;
+	height: 50px;
+	width: 200px;
+	flex-grow: 0;
+	justify-content: space-around;
+}
+
+.time-control {
+	width: 30px;
+	height: 30px;
+	border-radius: 5px;
+	border-color: brown;
+	color: brown;
+	background-color: cornsilk;
+	border-width: 2px;
+}
+
+.time-control:hover {
+	background-color: burlywood;
+}
