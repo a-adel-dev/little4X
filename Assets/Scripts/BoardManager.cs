@@ -36,6 +36,5 @@ public class BoardManager : MonoBehaviour
                 GameObject tile = Instantiate(hexPrefab, pos, Quaternion.identity);
                 tile.name = $"{tile.name}_{row}_{col}";
             }
-
     }
 }

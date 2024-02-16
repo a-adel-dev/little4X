@@ -601,7 +601,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a59c44a292623946bf309a6a4d77986, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _timeMultiplier: 5
 --- !u!4 &1423547692
 Transform:
   m_ObjectHideFlags: 0
@@ -768,7 +767,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22e40ed257a5eb54eb5de71da5aa4733, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 5
+  _speed: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
